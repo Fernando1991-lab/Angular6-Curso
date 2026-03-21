@@ -1,0 +1,17 @@
+<h1>Página de Clientes</h1>
+<div class="lista">
+  <label>Nome:</label>
+  
+<input type="text" [(ngModel)]="cliente"> 
+<label>Idade:</label>
+<input type="text">
+<button type="button" (click)="addCliente()">Add Cliente</button>
+<br>
+  
+
+<ul>
+  <li *ngFor="let item of clientes">{{item}}</li>
+</ul>
+</div>
+
+

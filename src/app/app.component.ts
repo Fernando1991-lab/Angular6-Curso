@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
+
+
 @Component({
+  //Selector é o nome da tega que representa o componente, que pode ser chamado em outros compoonentes, por exemplo <app-root></app-root>;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'projeto';
+  title = 'Meu Primeiro Projeto';
+ 
+
 }
