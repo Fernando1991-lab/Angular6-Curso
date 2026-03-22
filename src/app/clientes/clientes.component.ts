@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from './cliente';
 
 @Component({
   selector: 'app-clientes',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
   clientes = [];
-  cliente = "";
+  cliente: Cliente= {
+    nome:"",
+     idade: 0,
+     valor: 0
+    };
   addCliente(){
+    //Isso faz com que cada cliente seja um novo objeto, ou seja, cada cliente adicionado à lista seja um objeto diferente, e não uma referência ao mesmo objeto. Assim, quando o usuário preencher os campos de nome e idade para um cliente e clicar em "Add Cliente", um novo objeto será criado com os valores preenchidos e adicionado à lista de clientes.
+    let cli = Object.assign({}, this.cliente)
     //o this é necessário pois clientes e cliente foram declaradas fora do método addCliente, ou seja, são propriedades da classe AppComponent
-    this.clientes.push(this.cliente);
+    this.clientes.push(cli);
 
   }
 

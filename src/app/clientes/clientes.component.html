@@ -2,15 +2,35 @@
 <div class="lista">
   <label>Nome:</label>
   
-<input type="text" [(ngModel)]="cliente"> 
+<input type="text" [(ngModel)]="cliente.nome"> 
 <label>Idade:</label>
-<input type="text">
+<input type="text" [(ngModel)]="cliente.idade">
+<label>Valor</label>
+<input type="text" [(ngModel)]="cliente.valor">
+
 <button type="button" (click)="addCliente()">Add Cliente</button>
 <br>
   
 
 <ul>
-  <li *ngFor="let item of clientes">{{item}}</li>
+ <li
+  [id] = " 'lista -      ' + item.nome "
+  [style.color]="item.idade > 30 ? 'red' : 'green'"
+  *ngFor="let item of clientes" 
+  [innerHtml]="(item.nome | lowercase) + ' - ' + item.idade + ' - ' + (item.valor | formatCurrency)">
+  
+
+</li>
+
+
+
+  <!--<li 
+  [id] = " 'lista -      ' + item.nome "
+  [ngClass]="{'verde':item.idade < 30, 'vermelho':item.idade >= 30, 'fonteg':item.idade >= 50}"
+  *ngFor="let item of clientes" [innerHtml]="item.nome + ' - ' + item.idade">
+  {{item.nome| uppercase}} - {{item.idade}}-->
+    
+  
 </ul>
 </div>
 
