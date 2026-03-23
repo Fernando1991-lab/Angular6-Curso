@@ -7,7 +7,7 @@ export class FormatDatePipe implements PipeTransform {
 
   transform(value: any, locale: 'pt-BR'): any {
     
-    2018-8-8
+    
     if(value.length<10){
       return value;
     }

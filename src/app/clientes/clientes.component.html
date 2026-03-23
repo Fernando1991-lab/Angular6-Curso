@@ -5,6 +5,7 @@
 <input type="text" [(ngModel)]="cliente.nome"> 
 <label>Idade:</label>
 <input type="text" [(ngModel)]="cliente.idade">
+<br>
 <label>Valor</label>
 <input type="text" [(ngModel)]="cliente.valor">
 <label>Data</label>
@@ -15,25 +16,29 @@
   
 
 <ul>
- <li
+ <!--<li
   [id] = " 'lista -      ' + item.nome "
   [style.color]="item.idade > 30 ? 'red' : 'green'"
   *ngFor="let item of clientes" 
   [innerHtml]="(item.nome | lowercase) + ' - ' + item.idade + ' - ' + (item.valor | formatCurrency) + (item.data | formatDate)">
   
 
-</li>
+</li>-->
 
 
 
   <!--<li 
   [id] = " 'lista -      ' + item.nome "
-  [ngClass]="{'verde':item.idade < 30, 'vermelho':item.idade >= 30, 'fonteg':item.idade >= 50}"
-  *ngFor="let item of clientes" [innerHtml]="item.nome + ' - ' + item.idade">
-  {{item.nome| uppercase}} - {{item.idade}}-->
+  [ngClass]="{'verde':item.idade < 30, 'vermelho':item.idade >= 30, 'fonteg':item.idade >= 50}"-->
+  
+  <li *ngFor="let item of clientes" [appMeusClientes]="item">
+    {{item.nome| uppercase}} - {{item.idade}} - {{item.valor | formatCurrency}} - {{item.data | formatDate}}
+  </li>
     
   
 </ul>
+<!--Diretivas devem ser chamadas dentro dos elementos-->
+<p appMeusClientes></p>
 </div>
 
 
