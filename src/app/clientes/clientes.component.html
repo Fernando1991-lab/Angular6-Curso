@@ -7,6 +7,8 @@
 <input type="text" [(ngModel)]="cliente.idade">
 <label>Valor</label>
 <input type="text" [(ngModel)]="cliente.valor">
+<label>Data</label>
+<input type="text" [(ngModel)]="cliente.data">
 
 <button type="button" (click)="addCliente()">Add Cliente</button>
 <br>
@@ -17,7 +19,7 @@
   [id] = " 'lista -      ' + item.nome "
   [style.color]="item.idade > 30 ? 'red' : 'green'"
   *ngFor="let item of clientes" 
-  [innerHtml]="(item.nome | lowercase) + ' - ' + item.idade + ' - ' + (item.valor | formatCurrency)">
+  [innerHtml]="(item.nome | lowercase) + ' - ' + item.idade + ' - ' + (item.valor | formatCurrency) + (item.data | formatDate)">
   
 
 </li>
